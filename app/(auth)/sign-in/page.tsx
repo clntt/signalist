@@ -11,7 +11,7 @@ const SignIn = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<SignUpFormData>({
+  } = useForm<SignInFormData>({
     defaultValues: {
       email: "",
       password: "",
@@ -19,7 +19,7 @@ const SignIn = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = async (data: SignUpFormData) => {
+  const onSubmit = async (data: SignInFormData) => {
     try {
     } catch (error) {
       console.log(error);
