@@ -4,13 +4,16 @@ import FooterLinks from "@/components/forms/FooterLinks";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
+import { signUpWithEmail } from "@/lib/actions/auth.actions";
 import {
   INVESTMENT_GOALS,
   PREFERRED_INDUSTRIES,
   RISK_TOLERANCE_OPTIONS,
 } from "@/lib/constants";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const SignUp = () => {
   const {
@@ -31,10 +34,20 @@ const SignUp = () => {
     mode: "onBlur",
   });
 
+  const router = useRouter();
+
   const onSubmit = async (data: SignUpFormData) => {
     try {
+      const result = await signUpWithEmail(data);
+      if (result.success) router.push("/");
     } catch (error) {
       console.log(error);
+      toast.error("sign up failed", {
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to create an account.",
+      });
     }
   };
 
@@ -60,7 +73,7 @@ const SignUp = () => {
           error={errors.email}
           validation={{
             required: "Email is required",
-            pattern: /^\w+@\w+\.\w+$/,
+            // pattern: /^\w+@\w+\.\w+$/,
             minLength: 10,
           }}
         />
