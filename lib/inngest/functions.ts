@@ -1,4 +1,3 @@
-import { success } from "better-auth";
 import { inngest } from "./client";
 import { PERSONALIZED_WELCOME_EMAIL_PROMPT } from "./prompts";
 import { sendWelcomeEmail } from "../nodemailer";
