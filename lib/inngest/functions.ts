@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 import { inngest } from "./client";
-import { PERSONALIZED_WELCOME_EMAIL_PROMPT } from "./prompts";
-import { sendWelcomeEmail } from "../nodemailer";
-=======
-import { inngest } from "@/lib/inngest/client";
+// import { PERSONALIZED_WELCOME_EMAIL_PROMPT } from "./prompts";
+// import { sendWelcomeEmail } from "../nodemailer";
+// import { inngest } from "@/lib/inngest/client";
 import {
   NEWS_SUMMARY_EMAIL_PROMPT,
   PERSONALIZED_WELCOME_EMAIL_PROMPT,
@@ -13,7 +11,6 @@ import { getAllUsersForNewsEmail } from "@/lib/actions/user.action";
 import { getWatchlistSymbolsByEmail } from "@/lib/actions/watchlist.actions";
 import { getNews } from "@/lib/actions/finnhub.actions";
 import { getFormattedTodayDate } from "@/lib/utils";
->>>>>>> a71a40710f1cbdfe3aedcad26b278ea59aaa9634
 
 export interface UserForNewsEmail {
   id: string;
